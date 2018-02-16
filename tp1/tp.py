@@ -9,7 +9,7 @@ from sklearn.svm import SVC
 from sklearn import datasets
 
 plt.close('all')
-rc('font', **{'family': 'sans-serif', 'sans-serif': ['Computer Modern Roman']})
+rc('font', **{'family': 'serif', 'serif': ['Computer Modern Roman']})
 params = {
     'axes.labelsize': 12,
     'font.size': 16,
@@ -31,4 +31,15 @@ y_test = y[[2*i+1 for i in range(len(y)//2)]]
 # Linear kernel
 clf = svm.LinearSVC()
 clf.fit(X_train, y_train)
-print(clf.score(X_test, y_test))
+print("Linear kernel: ", clf.score(X_test, y_test))
+
+# Polynomial kernel
+# degree 3
+clf = svm.SVC(kernel='poly')
+clf.fit(X_train, y_train)
+print("Polynomial kernel of degree 3: ", clf.score(X_test, y_test))
+# degree 5
+clf = svm.SVC(kernel='poly', degree=5)
+clf.fit(X_train, y_train)
+print("Polynomial kernel of degree 5: ", clf.score(X_test, y_test))
+
