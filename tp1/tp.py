@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib import rc
-from svm_soruce import frontiere, plot_2d
+from svm_src import frontiere, plot_2d
 
 from sklearn import svm
 from sklearn.svm import SVC
@@ -18,9 +18,17 @@ params = {
     'figure.figsize': (8, 6)}
 plt.rcParams.update(params)
 
-iris = datasets.load(iris).
+iris = datasets.load_iris()
 X = iris.data
-Y = iris.target
+y = iris.target
 X = X[y != 0, :2]
 y = y[y != 0]
+X_train = X[[2*i for i in range(len(X)//2)],]
+y_train = y[[2*i for i in range(len(y)//2)]]
+X_test = X[[2*i+1 for i in range(len(X)//2)],]
+y_test = y[[2*i+1 for i in range(len(y)//2)]]
 
+# Linear kernel
+clf = svm.LinearSVC()
+clf.fit(X_train, y_train)
+print(clf.score(X_test, y_test))
