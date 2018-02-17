@@ -15,7 +15,7 @@ If all examples are from the same class, it uses a one-class SVM.
 """
 from __future__ import division
 
-print __doc__
+print(__doc__)
 
 # Author: Peter Prettenhoer <peter.prettenhofer@gmail.com>
 #
@@ -29,7 +29,7 @@ from matplotlib.backends.backend_tkagg import NavigationToolbar2TkAgg
 from matplotlib.figure import Figure
 from matplotlib.contour import ContourSet
 
-import Tkinter as Tk
+import tkinter as Tk
 import sys
 import numpy as np
 
@@ -76,7 +76,7 @@ class Controller(object):
         self.fitted = False
 
     def fit(self):
-        print "fit the model"
+        print("fit the model")
         train = np.array(self.model.data)
         X = train[:, :2]
         y = train[:, 2]
@@ -95,7 +95,7 @@ class Controller(object):
                           gamma=gamma, coef0=coef0, degree=degree)
             clf.fit(X, y)
         if hasattr(clf, 'score'):
-            print "Accuracy:", clf.score(X, y) * 100
+            print("Accuracy:", clf.score(X, y) * 100)
         X1, X2, Z = self.decision_surface(clf)
         self.model.clf = clf
         self.model.set_surface((X1, X2, Z))
@@ -173,7 +173,7 @@ class View(object):
         if event == "example_added":
             x, y, l = model.data[-1]
             if l == 1:
-                color = 'w'
+                color = 'r'
             elif l == -1:
                 color = 'k'
             self.ax.plot([x], [y], "%so" % color, scalex=0.0, scaley=0.0)
