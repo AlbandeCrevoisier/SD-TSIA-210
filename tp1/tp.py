@@ -43,3 +43,20 @@ clf = svm.SVC(kernel='poly', degree=5)
 clf.fit(X_train, y_train)
 print("Polynomial kernel of degree 5: ", clf.score(X_test, y_test))
 
+# Face recognition
+
+from time import time
+import pylab as pl
+
+from sklearn.cross_validation import train_test_split
+from sklearn.datasets import fetch_lfw_people
+
+lfw_people = fetch_lfw_people(min_faces_per_person=70, resize=0.4,
+                              color=True, funneled=False, slice_=None,
+                              download_if_missing=True)
+
+images = lfw_people.images / 255.
+n_samples, h, w, n_colors = images.shape
+
+target_names = lfw_people.target_names.tolist()
+
