@@ -1,0 +1,21 @@
+Course 1
+	All
+		* No space before a question mark.
+		* It may be better to use a consistent notation for the 0-1 loss, as it
+		is called zero-one loss, then 0-1 loss, and eventually 0/1 loss.
+	p.44
+		* Last line: "What error does the estimated function make?"
+	p.45
+		* Second bullet point: "... and [provides] ..."
+	p.46
+		* First bullet point: "... to represent [the] image"
+	p.48
+		* First bullet point: "... to represent [the] image ..."
+	p.56
+		* Definition: there is a newline before the dot.
+	p.71
+		* \mathbb{P} and P are used, pick one or the other.
+	p.72
+		* Legend of the picture: missing closing parenthesis.
+	p.73
+		* Theorem: {-1, 1} has been used so far, let's keep it that way.
